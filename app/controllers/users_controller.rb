@@ -11,12 +11,15 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@user.update(params[:amount])
 		redirect_to user_path(@user)
+<<<<<<< HEAD
 	end
 
 	def create
 		@user = User.new(user_params)
 		@user.save
 		redirect_to user_path(@user)
+=======
+>>>>>>> 83c45f90341a2898e0426880f9a15fe35b0f9c95
 	end
 
 	def edit
