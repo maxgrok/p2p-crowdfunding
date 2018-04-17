@@ -1,0 +1,8 @@
+<ul>
+<% @pledges.each do |pledge| %>
+	<li><%= pledge.timestamp %></li>
+	<li><%= pledge.amount %></li>
+	
+	<p>--------------------------------------------</p>
+<% end %>
+</ul>

@@ -1,0 +1,17 @@
+<%= form_for @project do |f| %>
+	<%= f.label "Title" %> 
+	<%= f.text_field @project.title %>
+		<%= f.label "Category" %> <!-- find or create category, use datalink -->
+	<%= f.text_field @project.funding_goal %>
+
+	<%= f.label "Funding Goal" %>
+	<%= f.text_field @project.funding_goal %>
+		<%= f.label "Start Date" %>
+	<%= f.text_field @project.startdate %>
+		<%= f.label "End Date" %>
+	<%= f.text_field @project.enddate %>
+
+	<%= f.label "Beneficiary" %> <!-- find or create category, use datalink -->
+	<%= f.text_field @project.beneficiary_id.name %>
+	<%= f.submit %>
+<% end %>
