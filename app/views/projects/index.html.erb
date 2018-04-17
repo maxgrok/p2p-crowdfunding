@@ -1,11 +1,13 @@
+<div class="ui raised very padded text left aligned container segment">
 <ul>
-<% @projects.each do |pledge| %>
-	<li><%= project.title %></li>
-	<li><%= project.category_id.name %></li>
-	<li><%= project.funding_goal %></li>
-	<li><%= project.startdate %></li>
-	<li><%= project.enddate %></li>
-	<li><%= project.beneficiary_id.name %></li>
+<% @projects.each do |project| %>
+	<li><em><%= project.title %></em></li>
+	<li>Category: <%= link_to project.category_id, category_path(project.category_id) %></li>
+	<li>Funding Goal: <%= project.funding_goal %></li>
+	<li>Start Date: <%= project.startdate %></li>
+	<li>End Date: <%= project.enddate %></li>
+	<li>Beneficiary: <%= link_to project.beneficiary_id, user_path(project.beneficiary_id) %></li>
 	<p>--------------------------------------------</p>
 <% end %>
 </ul>
+</div>

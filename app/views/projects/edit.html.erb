@@ -1,3 +1,4 @@
+<div class="ui raised very padded text center aligned container segment">
 <%= form_for @project do |f| %>
 	<%= f.label "Title" %> 
 	<%= f.text_field @project.title %>
@@ -12,17 +13,8 @@
 	<%= f.text_field @project.enddate %>
 
 	<%= f.label "Beneficiary" %> <!-- find or create category, use datalink -->
-	<%= f.text_field @project.beneficiary_id.name %>
+	<%= f.text_field @project.beneficiary_id %>
 	<%= f.submit %>
-<<<<<<< HEAD
-<% end %>
-=======
 <% end %>
 
-<li><%= project.title %></li>
-	<li><%= project.category_id.name %></li>
-	<li><%= project.funding_goal %></li>
-	<li><%= project.startdate %></li>
-	<li><%= project.enddate %></li>
-	<li><%= project.beneficiary_id.name %></li>
->>>>>>> 83c45f90341a2898e0426880f9a15fe35b0f9c95
+</div>
