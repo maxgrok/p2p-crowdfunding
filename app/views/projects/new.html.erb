@@ -1,0 +1,15 @@
+<%= form_for @project do |f| %>
+	<%= f.label "Title" %> 
+	<%= f.text_field :title %>
+	<%= f.label "Funding Goal" %>
+	<%= f.text_field :funding_goal %>
+	<%= f.label "Category" %> 
+	<%= f.text_field :category_id %>
+	<%= f.label "Start Date" %>
+	<%= f.text_field :startdate %>
+	<%= f.label "End Date" %> 
+	<%= f.text_field :enddate %>
+	<%= f.label "Beneficiary" %>
+	<%= f.text_field :beneficiary_id %>
+	<%= f.submit %>
+<% end %>
