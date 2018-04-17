@@ -1,0 +1,8 @@
+<div class="ui raised very padded text center aligned container segment">
+<%= form_for @categories do |f| %>
+	<%= f.label "Category" %> 
+	<%= f.text_field @category.name %>
+	<%= f.submit %>
+<% end %>
+
+</div>

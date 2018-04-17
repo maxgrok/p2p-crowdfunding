@@ -1,0 +1,9 @@
+<div class="ui raised very padded text left aligned container segment">
+<ul>
+<% @categories.each do |category| %>
+	<li><em><%= category.name %></em></li>
+	<!-- list all the projects in that category? -->
+	<p>--------------------------------------------</p>
+<% end %>
+</ul>
+</div>
