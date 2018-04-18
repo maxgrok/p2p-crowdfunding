@@ -1,20 +1,29 @@
-<div class="ui raised very padded text center aligned container segment">
+<div class="ui raised very padded text left aligned container segment">
 <%= form_for @project do |f| %>
-	<%= f.label "Title" %> 
-	<%= f.text_field @project.title %>
-		<%= f.label "Category" %> <!-- find or create category, use datalink -->
-	<%= f.text_field @project.funding_goal %>
-
+		<%= f.label "Title" %> 
+	<%= f.text_field :title %><br>
 	<%= f.label "Funding Goal" %>
-	<%= f.text_field @project.funding_goal %>
-		<%= f.label "Start Date" %>
-	<%= f.text_field @project.startdate %>
-		<%= f.label "End Date" %>
-	<%= f.text_field @project.enddate %>
-
-	<%= f.label "Beneficiary" %> <!-- find or create category, use datalink -->
-	<%= f.text_field @project.beneficiary_id %>
-	<%= f.submit %>
+	<%= f.text_field :funding_goal %><br>
+	<%= f.label "Category" %> 
+	<%= f.text_field :category, list: "categories_autocomplete" %>
+  <datalist id="categories_autocomplete">
+    <% Category.all.each do |category| %>
+      <option value="<%= category.name %>=<%= category.id %>">
+    <% end %>
+  </datalist>
+ <br>
+	<%= f.label "Start Date" %>
+	<%= f.text_field :startdate %><br>
+	<%= f.label "End Date" %> 
+	<%= f.text_field :enddate %><br>
+	<%= f.label "Beneficiary" %>
+	<%= f.text_field :beneficiary_id, list: "beneficiary_autocomplete" %>
+	 <datalist id="beneficiary_autocomplete">
+    <% User.all.each do |user| %>
+      <option value="<%= user.name %>=<%= user.id %>">
+    <% end %>
+  </datalist><%= f.label "(Please Enter An Integer)" %><br><br>
+	<%= f.submit %><br>
+	<%= link_to "Delete This Project", @project, method: :delete, data: { confirm: "Really?" } %>
 <% end %>
-
 </div>

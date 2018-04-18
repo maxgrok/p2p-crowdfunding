@@ -1,0 +1,224 @@
+<div class="ui container">
+
+	<div class="ui four column stackable grid container">
+	<div class="column">
+			<p><h2><%= @users.count %> <span style="color:blue;">User(s)</span></h2>
+			<hr>
+			</p>
+	</div>
+
+<div class="column">
+			<p><h2><%= @projects.count %> <span style="color:purple;">Project(s)</span></h2>
+			<hr>
+			</p>
+	</div>
+	<div class="column">
+			<p><h2><%= @pledges.count %><span style="color:green;"> Pledge(s)</span></h2>
+			<hr>
+			</p>
+	</div>
+	<div class="column">
+			<p><h2><%= @categories.count %> <span style="color:orange;">Categories</span></h2>
+			<hr>
+			</p>
+	</div>
+</div>
+
+		<div class="ui four column doubling stackable grid container">
+		
+		<div class="column">
+			<h2>Highest Donor</h2>
+			<hr>
+		<p><div class="ui card" style="float:left;">
+			    <div class="image">
+			      <div class="ui blurring inverted dimmer">
+			        <div class="content">
+			          <div class="center">
+			            <div class="ui teal button">Pledge</div>
+			          </div>
+			        </div>
+			      </div>
+			      <%= image_tag "placeholderimage.png" %>
+			    </div>
+			    <div class="content">
+			      <div class="header"><%= @donor.name %></div>
+			      <div class="meta">
+			        <a class="group"><%= @donor.age %></a>
+			      </div>
+			      <div class="description">I'm a donor!<br>
+			      <%= link_to "Edit This User", edit_user_path(@donor.id) %><br>
+		<!-- delete this user button_tag? -->
+		 <%= link_to "Delete This User", @donor, method: :delete, data: { confirm: "Really?" } %><br></div>
+			    </div>
+			    <div class="extra content">
+			      <a class="right floated created">Pledges</a>
+			      <a class="friends">
+			        Profile</a>
+			    </div>
+			</div>
+			</p>
+</div>
+
+	<div class="column">
+			<h2>Luckiest Beneficiary</h2>
+			<hr>
+		<p><div class="ui card" style="float:left;">
+			    <div class="image">
+			      <div class="ui blurring inverted dimmer">
+			        <div class="content">
+			          <div class="center">
+			            <div class="ui teal button">Pledge</div>
+			          </div>
+			        </div>
+			      </div>
+			      <%= image_tag "placeholderimage.png" %>
+			    </div>
+			    <div class="content">
+			      <div class="header"><%= @luckiest.name %></div>
+			      <div class="meta">
+			        <a class="group"><%= @luckiest.age %></a>
+			      </div>
+			      <div class="description">I'm a beneficiary!<br>
+			      <%= link_to "Edit This User", edit_user_path(@luckiest.id) %><br>
+		<!-- delete this user button_tag? -->
+		 <%= link_to "Delete This User", @luckiest, method: :delete, data: { confirm: "Really?" } %><br></div>
+			    </div>
+			    <div class="extra content">
+			      <a class="right floated created">Pledges</a>
+			      <a class="friends">
+			        Profile</a>
+			    </div>
+			</div>
+			</p></div>
+
+<div class="column">
+			<h2>Highest Pledge</h2>
+			<hr>
+		<p><div class="ui card" style="float:left;">
+			    <div class="image">
+			      <div class="ui blurring inverted dimmer">
+			        <div class="content">
+			          <div class="center">
+			            <div class="ui teal button">Pledge</div>
+			          </div>
+			        </div>
+			      </div>
+			      <%= image_tag "placeholderimage.png" %>
+			    </div>
+			    <div class="content">
+			      <div class="header"><%= @highest_pledge.amount %></div>
+			      <div class="meta"><%= link_to Project.find(@highest_pledge.project_id).title, project_path(@highest_pledge.project_id)%>
+			        <a class="group"></a>
+			      </div>
+			      <div class="description">I'm a pledge
+		<!-- delete this user button_tag? --><br><br>
+		 <%= link_to "Delete This Pledge", @highest_pledge, method: :delete, data: { confirm: "Really?" } %><br></div>
+			    </div>
+			    <div class="extra content">
+			      <a class="right floated created">Text</a>
+			      <a class="friends">
+			        More info</a>
+			    </div>
+			</div>
+			</p></div>
+
+<div class="column">
+			<h2>Most Pledged Project</h2>
+			<hr>
+		<p><div class="ui card" style="float:left;">
+			    <div class="image">
+			      <div class="ui blurring inverted dimmer">
+			        <div class="content">
+			          <div class="center">
+			            <div class="ui teal button">Pledge</div>
+			          </div>
+			        </div>
+			      </div>
+			      <%= image_tag "placeholderimage.png" %>
+			    </div>
+			    <div class="content">
+			      <div class="header">
+<%= Project.find(@most_popular_project.first.project_id).title %></div>
+			      <div class="meta"><%= link_to Project.find(@most_popular_project.first.project_id).title, project_path(@most_popular_project.first.project_id)%>
+			        <a class="group"></a>
+			      </div>
+			      <div class="description">I'm a popular project!
+		<!-- delete this user button_tag? --><br><br>
+		 <%= link_to "Delete This Project", @most_popular_project.first, method: :delete, data: { confirm: "Really?" } %><br></div>
+			    </div>
+			    <div class="extra content">
+			      <a class="right floated created">Text</a>
+			      <a class="friends">
+			        More info</a>
+			    </div>
+			</div>
+			</p></div>
+
+<div class = "ui four column doubling stackable grid container">
+<h2>General Information</h2><br><br>
+<h2>Users</h2>
+<div class="ui four cards">
+<% @users.each do |user| %>
+	<div class="ui card" style="float:left;">
+	    <div class="image">
+	      <div class="ui blurring inverted dimmer">
+	        <div class="content">
+	          <div class="center">
+	            <div class="ui teal button">Pledge</div>
+	          </div>
+	        </div>
+	      </div>
+	      <%= image_tag "placeholderimage.png" %>
+	    </div>
+	    <div class="content">
+	      <div class="header"><%= user.name %></div>
+	      <div class="meta">
+	        <a class="group"><%= user.age %></a>
+	      </div>
+	      <div class="description">I'm a user!
+	      <%= link_to "Edit This User", edit_user_path(user.id) %><br>
+<!-- delete this user button_tag? -->
+ <%= link_to "Delete This User", user, method: :delete, data: { confirm: "Really?" } %><br></div>
+	    </div>
+	    <div class="extra content">
+	      <a class="right floated created">Pledges</a>
+	      <a class="friends">
+	        Profile</a>
+	    </div>
+	  </div>
+	<% end %>
+</div>
+<hr>
+<h3>Projects</h3>
+<div class="ui four cards">
+	<% @projects.each do |project| %>
+	<div class="ui card" style="float:left;">
+	    <div class="image">
+	      <div class="ui blurring inverted dimmer">
+	        <div class="content">
+	          <div class="center">
+	            <div class="ui teal button">Pledge</div>
+	          </div>
+	        </div>
+	      </div>
+	        <%= image_tag "placeholderimage.png" %>
+	    </div>
+	    <div class="content">
+	      <div class="header"><%= project.title %></div>
+	      <div class="meta"> <%= project.created_at %>
+	        <a class="group"><!-- corresponding donor --></a>
+	      </div>
+	      <div class="description">I'm a project!<hr>
+	Category: <%= link_to Category.find(project.category_id).name, category_path(project.id) %><br>
+	Funding Goal: <%= project.funding_goal %><br>
+	Start Date: <%= project.startdate %><br>
+	End Date: <%= project.enddate %><br>
+	Beneficiary: <%= link_to User.find(project.beneficiary_id).name, user_path(project.beneficiary_id) %><hr><%= link_to "See This Project", project_path(project.id)%><br>
+	<%= link_to "Update This Project", edit_project_path(project.id)%><br>
+<%= link_to "Delete This Project", project, method: :delete, data: { confirm: "Really?" } %><hr>
+</div>
+</div>
+</div>
+<% end %>
+
+</div></div>

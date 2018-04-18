@@ -1,7 +1,15 @@
 <div class="ui raised very padded text left aligned container segment">
 <h1>User Profile</h1>
 <strong>Name: <%= @user.name %></strong><br>
-Age: <%= @user.age %>
+<p>Age: <%= @user.age %></p>
+
+<%= link_to "Edit This User", edit_user_path(@user.id) %><br>
+<!-- delete this user button_tag? -->
+ <%= link_to "Delete This User", @user, method: :delete, data: { confirm: "Really?" } %><br>
+<%= link_to "Create New User", new_user_path %><br>
+<br>
+<%= link_to "See All Users", users_path %>
 </div>
 
 <!-- user pledges, projects, activity feed? -->
+</div>

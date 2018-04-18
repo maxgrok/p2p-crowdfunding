@@ -1,5 +1,28 @@
-<div class="ui raised very padded text center aligned container segment">
-<ul>
-<li><em><%= @category.name %></em></li>
-</ul>
+<div class="ui container"></div>
+<div class="ui four cards">
+
+	<div class="ui card" style="float:left;">
+	    <div class="image">
+	      <div class="ui blurring inverted dimmer">
+	        <div class="content">
+	          <div class="center">
+	            <div class="ui teal button">Category</div>
+	          </div>
+	        </div>
+	      </div>
+	        <%= image_tag "placeholderimage.png" %>
+	    </div>
+	    <div class="content">
+	      <div class="header"><%= link_to @category.name, category_path(@category) %></div>
+	      <div class="meta"> <%= @category.created_at %>
+	        <a class="group"><%= User.find(@category.donor_id).name %></a>
+	      </div>
+	      <div class="description">I'm a category!</div>
+	    </div>
+	    <div class="extra content"><%= link_to @category.name, category_path(@category.id), :class=>"right floated created" %>
+	    </div>
+	  </div>
+	</div>
+	</div>
+</div>
 </div>

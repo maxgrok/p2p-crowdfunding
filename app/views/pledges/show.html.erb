@@ -1,4 +1,7 @@
-<div class="ui raised very padded text center aligned container segment">
-<%= @pledge.amount %>
-<%= @pledge.timestamp %>
+<div class="ui raised very padded text left aligned container segment">
+Amount: <%= @pledge.amount %>
+Created At: <%= @pledge.created_at %>
+
+<%= link_to "Edit This Pledge", edit_pledge_path(@pledge.id) %>
+ <%= link_to "Delete This Pledge", @pledge, method: :delete, data: { confirm: "Really?" } %>
 </div>

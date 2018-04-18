@@ -1,8 +1,10 @@
 <div class="ui raised very padded text center aligned container segment">
-<%= form_for @categories do |f| %>
-	<%= f.label "Category" %> 
-	<%= f.text_field @category.name %>
+<h1>Update Category</h1>
+<%= form_for @category do |f| %>
+	<%= f.label "Name" %> 
+	<%= f.text_field :name %>
 	<%= f.submit %>
 <% end %>
+<%= link_to "Delete This Category", @category, method: :delete, data: { confirm: "Really?" } %>
 
 </div>

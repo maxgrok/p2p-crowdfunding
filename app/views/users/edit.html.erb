@@ -1,9 +1,9 @@
 <div class="ui raised very padded text center aligned container segment">
-<%= form_for @user do |f| %>
+<%= form_for(@user) do |f| %>
 	<%= f.label "Name" %> 
-	<%= f.text_field @user.name %>
+	<%= f.text_field :name %>
 	<%= f.label "Age" %>
-	<%= f.text_field @user.age %>
+	<%= f.text_field :age %>
 	<%= f.submit %>
 <% end %>
 

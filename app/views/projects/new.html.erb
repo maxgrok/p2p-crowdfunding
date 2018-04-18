@@ -1,17 +1,34 @@
-<div class="ui raised very padded text center aligned container segment">
+<div class="ui raised very padded text left aligned container segment">
 <%= form_for @project do |f| %>
 	<%= f.label "Title" %> 
-	<%= f.text_field :title %>
+	<%= f.text_field :title %><br>
 	<%= f.label "Funding Goal" %>
-	<%= f.text_field :funding_goal %>
+	<%= f.text_field :funding_goal %><br>
+	
+	<!-- Category Dropdown, using datalinks-->
 	<%= f.label "Category" %> 
-	<%= f.text_field :category_id %>
+	<%= f.text_field :category_id, list: "categories_autocomplete" %>
+  <datalist id="categories_autocomplete">
+    <% Category.all.each do |category| %>
+      <option value="<%= category.name %>=<%= category.id %>">
+    <% end %>
+  </datalist><%= f.label "(Please Enter An Integer)" %>
+  <br>
 	<%= f.label "Start Date" %>
-	<%= f.text_field :startdate %>
+	<%= f.text_field :startdate %><br>
 	<%= f.label "End Date" %> 
-	<%= f.text_field :enddate %>
+	<%= f.text_field :enddate %><br>
+	
+	<!-- Beneficiary Dropdown -->
 	<%= f.label "Beneficiary" %>
-	<%= f.text_field :beneficiary_id %>
+	<%= f.text_field :beneficiary_id, list: "beneficiary_autocomplete" %>
+	 <datalist id="beneficiary_autocomplete">
+    <% User.all.each do |user| %>
+      <option value="<%= user.name %> = <%= user.id %>">
+    <% end %>
+  </datalist><%= f.label "(Please Enter An Integer)" %>
+	<br><br>
+	
 	<%= f.submit %>
 <% end %>
 </div>

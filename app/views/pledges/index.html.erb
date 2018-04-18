@@ -1,10 +1,36 @@
-<div class="ui raised very padded text center aligned container segment">
-<ul>
-<% @pledges.each do |pledge| %>
-	<li><%= pledge.timestamp %></li>
-	<li><%= pledge.amount %></li>
-	
-	<p>--------------------------------------------</p>
-<% end %>
-</ul>
+<div class="ui container">
+<%= link_to "Make A New Pledge", new_pledge_path %>
+<hr>
+
+	<h3>Pledges</h3>
+<div class="ui four cards">
+	<% @pledges.each do |pledge| %>
+	<div class="ui card" style="float:left;">
+	    <div class="image">
+	      <div class="ui blurring inverted dimmer">
+	        <div class="content">
+	          <div class="center">
+	            <div class="ui teal button">Pledge</div>
+	          </div>
+	        </div>
+	      </div>
+	        <%= image_tag "placeholderimage.png" %>
+	    </div>
+	    <div class="content">
+	      <div class="header">$<%= pledge.amount %></div>
+	      <h3><%= pledge.project.title %></h3>
+	      <div class="meta"> <%= pledge.created_at %><br>
+	        <a class="group"><%= User.find(pledge.donor_id).name %></a>
+	      </div>
+	      <div class="description">I'm a pledge!</div>
+	    </div>
+	    <div class="extra content">
+	      <a class="right floated created"></a>
+	      <a class="friends">
+	        <%= link_to "Donor Profile", user_path(pledge.donor_id) %></a>
+	    </div>
+	  </div>
+	<% end %>
+	</div>
+	</ul>
 </div>

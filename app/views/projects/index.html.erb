@@ -1,13 +1,38 @@
-<div class="ui raised very padded text left aligned container segment">
-<ul>
-<% @projects.each do |project| %>
-	<li><em><%= project.title %></em></li>
-	<li>Category: <%= link_to project.category_id, category_path(project.category_id) %></li>
-	<li>Funding Goal: <%= project.funding_goal %></li>
-	<li>Start Date: <%= project.startdate %></li>
-	<li>End Date: <%= project.enddate %></li>
-	<li>Beneficiary: <%= link_to project.beneficiary_id, user_path(project.beneficiary_id) %></li>
-	<p>--------------------------------------------</p>
+<div class="ui container">
+<%= link_to "Create New Project", new_project_path %></li>
+<hr>
+<h3>Projects</h3>
+<div class="ui four cards">
+	<% @projects.each do |project| %>
+	<div class="ui card" style="float:left;">
+	    <div class="image">
+	      <div class="ui blurring inverted dimmer">
+	        <div class="content">
+	          <div class="center">
+	            <div class="ui teal button">Pledge</div>
+	          </div>
+	        </div>
+	      </div>
+	        <%= image_tag "placeholderimage.png" %>
+	    </div>
+	    <div class="content">
+	      <div class="header"><%= project.title %></div>
+	      <div class="meta"> <%= project.created_at %>
+	        <a class="group"><!-- corresponding donor --></a>
+	      </div>
+	      <div class="description">I'm a project!<hr>
+	Category: <%= link_to project.title, category_path(project.id) %><br>
+	Funding Goal: <%= project.funding_goal %><br>
+	Start Date: <%= project.startdate %><br>
+	End Date: <%= project.enddate %><br>
+	Beneficiary: <%= link_to User.find(project.beneficiary_id).name, user_path(project.beneficiary_id) %><hr><%= link_to "See This Project", project_path(project.id)%><br>
+	<%= link_to "Update This Project", edit_project_path(project.id)%><br>
+<%= link_to "Delete This Project", project, method: :delete, data: { confirm: "Really?" } %><hr>
+</div>
+</div>
+</div>
 <% end %>
+
 </ul>
+</div>
 </div>

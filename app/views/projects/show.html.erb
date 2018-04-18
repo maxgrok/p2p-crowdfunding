@@ -1,11 +1,14 @@
-<div class="ui raised very padded text center aligned container segment">
+<div class="ui raised very padded text left aligned container segment">
 <ul>
-<li><em><%= @project.title %></em></li>
-	<li><%= @project.category_id.name %></li>
-	<li><%= @project.funding_goal %></li>
-	<li><%= @project.startdate %></li>
-	<li><%= @project.enddate %></li>
-	<li><%= @project.beneficiary_id.name %></li>
-	<li><%= @project.timestamp %></li>
+<li><strong><%= @project.title %></strong></li>
+	<li>Category ID: <%= link_to @project.category_id, category_path(@project.category_id) %></li>
+	<li>Funding Goal: <%= @project.funding_goal %></li>
+	<li>Start Date: <%= @project.startdate %></li>
+	<li>End Date: <%= @project.enddate %></li>
+	<li>Beneficiary ID: <%= link_to @project.beneficiary_id, user_path(@project.beneficiary_id) %></li><br>
+	<li>Created At: <%= @project.created_at %></li>
+	<li>Updated At: <%= @project.updated_at %></li><br>
+	<%= link_to "Update This Project", edit_project_path(@project.id)%> <br>
+	<%= link_to "Delete This Project", @project, method: :delete, data: { confirm: "Really?" } %>
 </ul>
 </div>

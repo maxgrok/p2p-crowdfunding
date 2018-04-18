@@ -20,7 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 #adding Font Awesome to Rails 
-gem "font-awesome-rails"
+  gem "font-awesome-rails"
 #adding for styling for Semantic UI
 gem 'jquery-rails'
 # Use CoffeeScript for .coffee assets and views

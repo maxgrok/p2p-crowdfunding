@@ -1,6 +1,7 @@
 <!-- different nav, compare and choose one -->
 <div class="ui menu">
   <div class="header item">
+    <i class="fa fa-users" style="padding-right:1em;"></i>
     <%= link_to "P2P$", root_path, :style =>"text-decoration:none; color: black;" %>
   </div>
   <% if current_page?(root_path) %>
@@ -32,12 +33,25 @@
     <% else %>
     <%= link_to "Projects", projects_path, :class => "item" %>
 <% end %>
+
+<% if current_page?(categories_path) %>
+    <%= link_to "Categories", categories_path, :class => "item active" %>
+    <% else %>
+    <%= link_to "Categories", categories_path, :class => "item" %>
+<% end %>
+
+ <% if current_page?(admin_path) %>
+    <%= link_to "Admin", admin_path, :class => "item active" %>
+    <% else %>
+    <%= link_to "Admin", admin_path, :class => "item" %>
+<% end %>
+
     <div class="right menu">
         <div class="item">
             <a href="/users/new"><div class="ui primary button">Sign up</div></a>
         </div>
         <div class="item">
-            <a href="/users/login"><div class="ui button">Log-in</div></a>
+            <a href="/login"><div class="ui button">Log-in</div></a>
         </div>  
     </div>
 </div>

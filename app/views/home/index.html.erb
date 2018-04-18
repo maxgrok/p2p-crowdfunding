@@ -1,10 +1,106 @@
-<div class="ui raised very padded text center aligned container segment">
-<ul>
-<% @users.each do |user| %>
-	<li><%= user.name %></li><br>
-	<li><%= user.age %></li>
-	<p>---------------------</p>
-<% end %>
-</ul>
+<div class="ui container">
+<%= link_to "Create New Category", new_category_path, :style => "color:black;" %> | 
+
+<%= link_to "Create New Project", new_project_path, :style => "color:black;" %> | 	
+
+<%= link_to "Create New User", new_user_path, :style => "color:black;" %> |
+<%= link_to "Make A New Pledge", new_pledge_path, :style => "color:black;" %><hr>
+<hr>
 <!-- activity feed here ? -->
+
+<h3>Users</h3>
+<div class="ui four cards">
+	<% @users.each do |user| %>
+	<div class="ui card" style="float:left;">
+	    <div class="image">
+	      <div class="ui blurring inverted dimmer">
+	        <div class="content">
+	          <div class="center">
+	            <div class="ui teal button">Pledge</div>
+	          </div>
+	        </div>
+	      </div>
+	      <%= image_tag "placeholderimage.png" %>
+	    </div>
+	    <div class="content">
+	      <div class="header"><%= user.name %></div>
+	      <div class="meta">
+	        <a class="group"><%= user.age %></a>
+	      </div>
+	      <div class="description">I'm a user!</div>
+	    </div>
+	    <div class="extra content">
+	      <a class="right floated created">Pledges</a>
+	      <a class="friends">
+	        Profile</a>
+	    </div>
+	  </div>
+	<% end %>
+	</div>
+	</ul>
+<hr>
+<h3>Pledges</h3>
+<div class="ui four cards">
+	<% @pledges.each do |pledge| %>
+	<div class="ui card" style="float:left;">
+	    <div class="image">
+	      <div class="ui blurring inverted dimmer">
+	        <div class="content">
+	          <div class="center">
+	            <div class="ui teal button">Pledge</div>
+	          </div>
+	        </div>
+	      </div>
+	        <%= image_tag "placeholderimage.png" %>
+	    </div>
+	    <div class="content">
+	      <div class="header">Amount: <%= pledge.amount %></div>
+	      <h3>Pledges</h3>
+	      <div class="meta"> <%= pledge.created_at %>
+	        <a class="group"><!-- corresponding donor --></a>
+	      </div>
+	      <div class="description">I'm a pledge!</div>
+	    </div>
+	    <div class="extra content">
+	      <a class="right floated created">Pledge Details</a>
+	      <a class="friends">
+	        Donor Profile</a>
+	    </div>
+	  </div>
+	<% end %>
+	</div>
+	</ul>
+<hr>
+<h3>Categories</h3>
+<div class="ui four cards">
+	<% @categories.each do |category| %>
+	<div class="ui card" style="float:left;">
+	    <div class="image">
+	      <div class="ui blurring inverted dimmer">
+	        <div class="content">
+	          <div class="center">
+	            <div class="ui teal button">Pledge</div>
+	          </div>
+	        </div>
+	      </div>
+	        <%= image_tag "placeholderimage.png" %>
+	    </div>
+	    <div class="content">
+	      <div class="header"><%= category.name %></div>
+	      <div class="meta"> <%= category.created_at %>
+	        <a class="group"><!-- corresponding donor --></a>
+	      </div>
+	      <div class="description">I'm a category!</div>
+	    </div>
+	    <div class="extra content">
+	      <a class="right floated created"><%= link_to category.name, category_path(category.id), :class=>"right floated created" %></a>
+	    </div>
+	  </div>
+	<% end %>
+	</div>
+	</ul>
+	</div>
+	</div>
+<hr>
 </div>
+	</div>

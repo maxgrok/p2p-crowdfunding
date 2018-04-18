@@ -9,8 +9,13 @@ class PledgesController < ApplicationController
 
 	def update
 		@pledge = Pledge.find(params[:id])
-		@pledge.update(params[:amount])
-		redirect_to pledge_path(@pledge)
+		@pledge.update(pledge_params)
+		redirect_to pledges_path(@pledge)
+	end
+
+	def create
+		@pledge = Pledge.create(pledge_params)
+		redirect_to pledges_path(@pledge)
 	end
 
 	def edit
@@ -20,9 +25,15 @@ class PledgesController < ApplicationController
 	def destroy
 		@pledge = Pledge.find(params[:id])
 		@pledge.destroy
-		redirect_to root_path
+		redirect_to pledges_path
 	end
 
 	def new
+		@pledge = Pledge.new
+	end
+
+	private 
+	def pledge_params
+		params.require(:pledge).permit(:amount, :project_id, :donor_id)
 	end
 end
