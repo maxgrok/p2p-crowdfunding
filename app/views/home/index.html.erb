@@ -5,10 +5,10 @@
 
 <%= link_to "Create New User", new_user_path, :style => "color:black;" %> |
 <%= link_to "Make A New Pledge", new_pledge_path, :style => "color:black;" %><hr>
-<hr>
+
 <!-- activity feed here ? -->
 
-<h3>Users</h3>
+<h2>Users</h2>
 <div class="ui four cards">
 	<% @users.each do |user| %>
 	<div class="ui card" style="float:left;">
@@ -38,8 +38,7 @@
 	<% end %>
 	</div>
 	</ul>
-<hr>
-<h3>Pledges</h3>
+<h2>Pledges</h2>
 <div class="ui four cards">
 	<% @pledges.each do |pledge| %>
 	<div class="ui card" style="float:left;">
@@ -70,8 +69,7 @@
 	<% end %>
 	</div>
 	</ul>
-<hr>
-<h3>Categories</h3>
+<h2>Categories</h2>
 <div class="ui four cards">
 	<% @categories.each do |category| %>
 	<div class="ui card" style="float:left;">

@@ -1,11 +1,15 @@
 <div class="ui raised very padded text left aligned container segment">
 	<div class="ui form">
 		<%= form_for @user do |f| %>
+		<div class="required field">
 			<%= f.label "Username" %> <br>
 			<%= text_field_tag :name %><br>
+			</div>
+			<div class="required field">
 			<%= f.label "Password" %><br>
 			<%= text_field_tag :password %><br>
 			<br>
+		</div>
 			<%= f.submit %>
 		<% end %>
 	</div>
